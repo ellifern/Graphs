@@ -1,3 +1,4 @@
+import Stack
 adj_list = {
     'A': ['C', 'B'],
     'B': ['A', 'D', 'K'],
@@ -22,3 +23,18 @@ def connected(adj_list, node1, node2):
 
 check_neigh(adj_list, 'A')
 
+stack_obj = Stack()
+visited_list = []
+
+current_node = "J"
+
+stack_obj.push(current_node)
+
+while not stack_obj.is_empty():
+    current_node = stack_obj.pop()
+    visited_list.append(current_node)
+
+    if current_node == "J":
+        adj_list[current_node].pop()
+
+    else:
