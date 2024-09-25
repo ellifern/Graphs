@@ -21,3 +21,4 @@ def connected(adj_list, node1, node2):
         return (False)
 
 check_neigh(adj_list, 'A')
+
