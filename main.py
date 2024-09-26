@@ -30,11 +30,15 @@ current_node = "J"
 
 stack_obj.push(current_node)
 
-while not stack_obj.is_empty():
-    current_node = stack_obj.pop()
-    visited_list.append(current_node)
+while not stack_obj.getsize() > 0:
+    temp_current = current_node
 
-    if current_node == "J":
-        adj_list[current_node].pop()
+    for neighbour in sorted(adj_list[current_node]):
+        if neighbour not in visited_list:
+            current_node = neighbour
+            stack_obj.push(current_node)
+            visited_list.append(current_node)
+            break
 
-    else:
+    if temp_current == current_node:
+        current_node = stack_obj.pop()
