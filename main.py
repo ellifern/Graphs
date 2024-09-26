@@ -1,4 +1,5 @@
-import Stack
+import graphs
+
 adj_list = {
     'A': ['C', 'B'],
     'B': ['A', 'D', 'K'],
@@ -19,18 +20,18 @@ def connected(adj_list, node1, node2):
     if node1 in adj_list[node2]:
         print (True)
     else:
-        return (False)
+        return False
 
-check_neigh(adj_list, 'A')
+# check_neigh(adj_list, 'A')
 
-stack_obj = Stack()
-visited_list = []
+stack_obj = graphs.Stack()
+
 
 current_node = "J"
-
+visited_list = [current_node]
 stack_obj.push(current_node)
 
-while not stack_obj.getsize() > 0:
+while stack_obj.get_size() > 0:
     temp_current = current_node
 
     for neighbour in sorted(adj_list[current_node]):
@@ -42,3 +43,7 @@ while not stack_obj.getsize() > 0:
 
     if temp_current == current_node:
         current_node = stack_obj.pop()
+
+print(visited_list)
+
+

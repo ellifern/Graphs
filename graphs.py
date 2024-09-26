@@ -6,7 +6,7 @@ class Stack:
     self.stack.append(value)
 
   def pop(self):
-    if len(self.stack) == 0:
+    if len(self.stack) > 0:
         return self.stack.pop()
     else:
         return IndexError
